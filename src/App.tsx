@@ -15,7 +15,7 @@ export const App: React.FC = () => {
   const perPage = Number(searchParams.get('perPage')) || 5;
 
   const totalPages = Math.max(1, Math.ceil(total / perPage));
-  const safePage = Math.min(currentPage, totalPages);
+  const safePage = Math.max(1, Math.min(currentPage, totalPages));
 
   const handlePageChange = (page: number) => {
     if (page !== safePage) {
